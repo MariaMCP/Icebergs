@@ -1,0 +1,24 @@
+//**Create a room and make it dark blue
+//**Create sprites for your boat/jet ski/ship 32x32, icebergs, and "fire"  Face all sprites to the right
+
+
+
+//**obj_player
+//**left**
+image_angle = image_angle +2;
+
+
+
+//**right**
+image_angle = image_angle -2;
+
+
+
+//**up**
+motion_add(image_angle, 0.2);
+if(speed > 5) speed = 5;
+
+
+
+//**outside room**
+Drag and Drop wrap screen from move tab
