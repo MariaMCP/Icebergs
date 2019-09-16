@@ -9,16 +9,49 @@ image_angle = image_angle +2;
 
 
 
-//**right**
+//**right** obj_player
 image_angle = image_angle -2;
 
 
 
-//**up**
+//**up** obj_player
 motion_add(image_angle, 0.2);
 if(speed > 5) speed = 5;
 
 
 
-//**outside room**
+//**outside room** obj_player
 Drag and Drop wrap screen from move tab
+
+
+
+//**step** obj_player
+speed = max(speed - 0.01, 0);
+
+
+
+//**press<Space>** obj_player
+fire = instance_create(x, y, obj_fire);
+
+fire.direction = image_angle;
+fire.image_angle = image_angle;
+fire.speed = 15; 
+
+
+
+//**obj_fire**
+//**outside room**
+instance_destroy();
+
+
+
+//**obj_iceberg**
+//**Create Event**
+image_speed = 0;
+image_index = irandom(2);
+
+direction = random(360);
+speed = 0.5 + random(2);
+
+
+
