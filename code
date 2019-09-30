@@ -55,3 +55,34 @@ speed = 0.5 + random(2);
 
 
 
+
+//**obj_iceberg**
+//**outside room**
+drag and drop wrap around in both directions
+
+
+
+//**obj_iceberg**
+//**Collision with obj_player
+game_restart();
+
+
+
+//**obj_iceberg**
+//**Collision with obj_fire **applies to self
+instance_destroy();
+
+//**Collision with obj_fire **applies to other
+instance_destroy();
+
+
+
+//**obj_iceberg**
+//**Collision with obj_iceberg
+drag and drop bounce
+
+
+
+//**Modify collison masks for player and icebergs
+
+
