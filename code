@@ -86,3 +86,25 @@ drag and drop bounce
 //**Modify collison masks for player and icebergs
 
 
+
+
+//****NEW CODE 
+//**obj_controller
+//**create event
+global.scores = 0;
+
+
+//**obj_controller
+//**Draw GUI
+draw_set_color(c_white);
+draw_text(32,32,string(global.scores));
+
+
+//**obj_iceberg
+//**Collision with obj_fire that applies to self add this line BEFORE instance_destroy();
+global.scores += 1;
+
+
+//**obj_iceberg  ***************NOT COMPLETE*****************
+//**step event
+speed = 0.5 + (global.scores * random(2));
