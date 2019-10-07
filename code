@@ -87,17 +87,28 @@ drag and drop bounce
 
 
 
-
+************************************************************************************************
 //****NEW CODE 
 //**obj_controller
 //**create event
 global.scores = 0;
+global.level = 0;
+
 
 
 //**obj_controller
 //**Draw GUI
 draw_set_color(c_white);
-draw_text(32,32,string(global.scores));
+draw_text(32,32,"Score: " + string(global.scores));
+draw_text(32,48, "Level: " + string(global.level));
+
+
+
+//**Create three smaller icebergs
+//**obj_iceberg_s
+//**Destroy Event
+///Nothing
+
 
 
 //**obj_iceberg
@@ -110,17 +121,14 @@ global.scores += 1;
 speed = (global.scores*0.1) + speed;
 
 
-//**obj_iceberg_s
-//**Destroy Event
-///Nothing
-
-
 
 //**obj_iceberg
 //**Destroy event
 instance_create(x,y,obj_iceberg_s);
 instance_create(x,y,obj_iceberg_s);
 
+
+//**Delete collision with icebergs
 
 
 //**obj_iceberg
@@ -130,5 +138,28 @@ while (place_meeting(x,y,obj_player))
     x=random(room_width);
     y=random(room_height);
 };
+
+//********Change speed below to match
+speed = (0.5 + random(2)) * (global.level + 0.5);
+
+
+
+//**obj_spawner
+//**step event
+if (!instance_exists(obj_iceberg))
+
+{
+    
+    instance_create(random(room_width), random(room_height), obj_iceberg);
+    instance_create(random(room_width), random(room_height), obj_iceberg);
+    instance_create(random(room_width), random(room_height), obj_iceberg);
+    instance_create(random(room_width), random(room_height), obj_iceberg);
+    instance_create(random(room_width), random(room_height), obj_iceberg);
+    global.level += 1;
+
+}
+
+//**Delete all the icebergs in the room and add the spawner object
+
 
 
