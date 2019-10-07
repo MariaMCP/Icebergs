@@ -105,6 +105,30 @@ draw_text(32,32,string(global.scores));
 global.scores += 1;
 
 
-//**obj_iceberg  ***************NOT COMPLETE*****************
+//**obj_iceberg 
 //**step event
-speed = 0.5 + (global.scores * random(2));
+speed = (global.scores*0.1) + speed;
+
+
+//**obj_iceberg_s
+//**Destroy Event
+///Nothing
+
+
+
+//**obj_iceberg
+//**Destroy event
+instance_create(x,y,obj_iceberg_s);
+instance_create(x,y,obj_iceberg_s);
+
+
+
+//**obj_iceberg
+//**Create Event Add this to the top
+while (place_meeting(x,y,obj_player))
+{
+    x=random(room_width);
+    y=random(room_height);
+};
+
+
